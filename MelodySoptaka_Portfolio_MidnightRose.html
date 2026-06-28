@@ -1,0 +1,1288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Melody Soptaka — Lead Product Manager</title>
+<meta name="description" content="Lead Product Manager building consumer products at scale. Currently at Bongo, Bangladesh's largest OTT platform (14M subscribers).">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%230d0d18'/><text x='50' y='64' font-family='system-ui' font-size='42' font-weight='700' fill='%23e8b4b8' text-anchor='middle'>MS</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg-deep: #0d0d18;
+  --bg-surface: #141422;
+  --bg-card: #1a1a2e;
+  --bg-card-hover: #222240;
+  --bg-elevated: #252542;
+  --rose: #e8b4b8;
+  --rose-dim: #c4949a;
+  --rose-glow: rgba(232, 180, 184, 0.12);
+  --rose-glow-strong: rgba(232, 180, 184, 0.2);
+  --gold: #d4a574;
+  --cream: #f0ece6;
+  --cream-dim: #b0aaa2;
+  --cream-faint: #7a756e;
+  --border: rgba(255,255,255, 0.06);
+  --border-hover: rgba(255,255,255, 0.12);
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg-deep);
+  color: var(--cream);
+  line-height: 1.7;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::selection { background: var(--rose); color: var(--bg-deep); }
+
+a { color: var(--rose); text-decoration: none; transition: color 0.2s; }
+a:hover { color: #f0cfd2; }
+
+.container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+
+/* ══ NAV ══ */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(13, 13, 24, 0.85);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  padding: 1rem 0;
+}
+nav .container { display: flex; justify-content: space-between; align-items: center; }
+.nav-logo {
+  font-family: var(--font-display);
+  font-size: 1.1rem; font-weight: 600; color: var(--rose);
+  letter-spacing: -0.02em;
+}
+.nav-links { display: flex; gap: 2rem; }
+.nav-links a {
+  font-size: 0.82rem; color: var(--cream-dim);
+  font-weight: 400; letter-spacing: 0.04em;
+  transition: color 0.2s; position: relative;
+}
+.nav-links a:hover { color: var(--rose); }
+.nav-links a::after {
+  content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1.5px;
+  background: var(--rose); transition: width 0.3s;
+}
+.nav-links a:hover::after { width: 100%; }
+
+.mobile-toggle { display: none; background: none; border: none; color: var(--cream); font-size: 24px; cursor: pointer; }
+
+/* ══ HERO ══ */
+.hero {
+  min-height: 100vh;
+  display: flex; align-items: center;
+  padding-top: 5rem;
+  position: relative;
+  overflow: hidden;
+}
+.hero-glow {
+  position: absolute; top: -20%; right: -10%;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(232,180,184,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-glow-2 {
+  position: absolute; bottom: -30%; left: -10%;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(212,165,116,0.04) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 4rem;
+  align-items: center;
+  position: relative; z-index: 1;
+}
+.hero-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--rose);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  display: flex; align-items: center; gap: 8px;
+}
+.hero-eyebrow::before {
+  content: ''; width: 24px; height: 1.5px; background: var(--rose);
+}
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: 3.6rem;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.5rem;
+}
+.hero h1 .accent { color: var(--rose); }
+.hero h1 .accent-gold { color: var(--gold); }
+.hero-intro {
+  font-size: 1.05rem;
+  color: var(--cream-dim);
+  line-height: 1.8;
+  margin-bottom: 2rem;
+  max-width: 500px;
+}
+.hero-cta { display: flex; gap: 1rem; align-items: center; }
+.btn-rose {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 0.8rem 1.8rem;
+  background: var(--rose);
+  color: var(--bg-deep);
+  border-radius: 28px;
+  font-family: var(--font-display);
+  font-weight: 600; font-size: 0.88rem;
+  transition: transform 0.15s, box-shadow 0.2s;
+  border: none; cursor: pointer;
+}
+.btn-rose:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(232,180,184,0.25);
+  color: var(--bg-deep);
+}
+.btn-ghost {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 0.8rem 1.8rem;
+  border: 1.5px solid var(--border-hover);
+  color: var(--cream);
+  border-radius: 28px;
+  font-family: var(--font-display);
+  font-weight: 500; font-size: 0.88rem;
+  transition: border-color 0.2s, background 0.2s;
+}
+.btn-ghost:hover { border-color: var(--rose); background: var(--rose-glow); color: var(--cream); }
+
+/* Hero stat card */
+.hero-stats {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 2rem;
+  position: relative;
+}
+.hero-stats::before {
+  content: '';
+  position: absolute; top: -1px; left: 2rem; right: 2rem; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--rose), transparent);
+}
+.stats-label {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--cream-faint);
+  margin-bottom: 1.5rem;
+}
+.stat-item {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.stat-item:last-child { border-bottom: none; }
+.stat-key { font-size: 0.88rem; color: var(--cream-dim); }
+.stat-val {
+  font-family: var(--font-display);
+  font-size: 1.05rem; font-weight: 600; color: var(--rose);
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  margin-top: 1.2rem;
+  padding: 0.4rem 0.9rem;
+  background: var(--rose-glow);
+  border: 1px solid rgba(232,180,184,0.15);
+  border-radius: 20px;
+  font-size: 0.78rem; color: var(--rose);
+}
+
+/* ══ SECTIONS ══ */
+section { padding: 6rem 0; }
+.section-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--rose);
+  margin-bottom: 0.5rem;
+  display: flex; align-items: center; gap: 10px;
+}
+.section-eyebrow::before {
+  content: ''; width: 20px; height: 1.5px; background: var(--rose);
+}
+.section-title {
+  font-family: var(--font-display);
+  font-size: 2.4rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.8rem;
+  line-height: 1.2;
+}
+.section-sub {
+  font-size: 1rem;
+  color: var(--cream-dim);
+  max-width: 560px;
+  margin-bottom: 3rem;
+}
+
+/* ══ ABOUT ══ */
+.about-section {
+  background: var(--bg-surface);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 2rem; }
+.about-text p { color: var(--cream-dim); font-size: 0.95rem; margin-bottom: 1.2rem; line-height: 1.8; }
+.about-text p:first-of-type { color: var(--cream); font-size: 1.05rem; }
+
+.about-text .fun-line {
+  display: inline;
+  background: var(--rose-glow);
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: var(--rose);
+}
+
+/* ══ SKILLS ══ */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+}
+.skill-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.8rem 1.4rem;
+  transition: border-color 0.3s, transform 0.2s, box-shadow 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.skill-card:hover {
+  border-color: rgba(232,180,184,0.2);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+}
+.skill-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--rose), var(--gold));
+  opacity: 0; transition: opacity 0.3s;
+}
+.skill-card:hover::before { opacity: 1; }
+.skill-icon {
+  width: 44px; height: 44px;
+  background: var(--rose-glow);
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 1rem;
+  color: var(--rose); font-size: 20px;
+}
+.skill-card h3 {
+  font-family: var(--font-display);
+  font-size: 1rem; font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+.skill-card p {
+  font-size: 0.82rem; color: var(--cream-faint); line-height: 1.6;
+}
+
+/* ══ IMPACT ══ */
+.impact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+}
+.impact-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 2rem 1.5rem;
+  transition: border-color 0.3s;
+  position: relative;
+}
+.impact-card:hover { border-color: rgba(232,180,184,0.15); }
+.impact-num {
+  font-family: var(--font-display);
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--rose);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+.impact-desc { font-size: 0.88rem; color: var(--cream-dim); line-height: 1.6; }
+.impact-meta {
+  font-family: var(--font-mono);
+  font-size: 0.68rem; color: var(--cream-faint);
+  margin-top: 0.7rem;
+  letter-spacing: 0.02em;
+}
+
+/* ══ WORK / CHAPTERS ══ */
+.work-section {
+  background: var(--bg-surface);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.chapter {
+  padding: 3rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.chapter:last-child { border-bottom: none; }
+
+.chapter-header {
+  display: grid; grid-template-columns: 1fr auto; gap: 2rem;
+  align-items: start; margin-bottom: 2rem;
+}
+.chapter-company {
+  font-family: var(--font-display);
+  font-size: 1.6rem; font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+.chapter-role { font-size: 0.9rem; color: var(--rose); font-weight: 500; margin-bottom: 0.3rem; }
+.chapter-dates {
+  font-family: var(--font-mono);
+  font-size: 0.75rem; color: var(--cream-faint);
+}
+.chapter-context {
+  font-size: 0.92rem; color: var(--cream-dim); line-height: 1.8;
+  max-width: 640px; margin-bottom: 1.5rem;
+}
+.chapter-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 0.5rem 1rem;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-family: var(--font-mono); font-size: 0.72rem; color: var(--cream-faint);
+  white-space: nowrap;
+}
+.chapter-badge i { color: var(--rose); font-size: 16px; }
+
+/* Feature chips */
+.feature-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem;
+  margin-top: 1.5rem;
+}
+.feature-chip {
+  display: flex; align-items: flex-start; gap: 12px;
+  padding: 1rem 1.2rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  transition: border-color 0.2s;
+}
+.feature-chip:hover { border-color: rgba(232,180,184,0.15); }
+.feature-chip i { color: var(--rose); font-size: 18px; margin-top: 2px; flex-shrink: 0; }
+.feature-chip .f-title { font-size: 0.88rem; font-weight: 500; margin-bottom: 2px; }
+.feature-chip .f-desc { font-size: 0.78rem; color: var(--cream-faint); line-height: 1.5; }
+
+/* Outcome pills */
+.outcome-row { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; }
+.outcome-pill {
+  display: flex; align-items: center; gap: 8px;
+  padding: 0.6rem 1.2rem;
+  background: var(--rose-glow);
+  border: 1px solid rgba(232,180,184,0.12);
+  border-radius: 24px;
+}
+.outcome-pill .o-num {
+  font-family: var(--font-display); font-weight: 700; font-size: 1rem; color: var(--rose);
+}
+.outcome-pill .o-label { font-size: 0.78rem; color: var(--cream-dim); }
+
+/* ══ WRITING ══ */
+.writing-stack {
+  display: flex; flex-direction: column; gap: 2rem;
+}
+.w-card {
+  display: grid;
+  grid-template-columns: 40% minmax(0, 1fr);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  text-decoration: none; color: inherit;
+  width: 100%;
+  cursor: pointer;
+  transition: border-color 0.4s, transform 0.3s, box-shadow 0.4s;
+}
+.w-card:hover {
+  border-color: rgba(232,180,184,0.25);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+  color: inherit; text-decoration: none;
+}
+.w-card.w-card-reverse {
+  grid-template-columns: minmax(0, 1fr) 40%;
+}
+
+.w-img {
+  position: relative; overflow: hidden;
+  min-height: 320px;
+}
+.w-img img {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease, filter 0.4s;
+  filter: brightness(0.7) saturate(0.85);
+}
+.w-card:hover .w-img img {
+  transform: scale(1.06);
+  filter: brightness(0.8) saturate(1);
+}
+.w-img-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(13,13,24,0.5) 0%, transparent 60%);
+  z-index: 1;
+}
+.w-img-badges {
+  position: absolute; top: 16px; left: 16px; z-index: 2;
+  display: flex; gap: 8px;
+}
+.w-badge {
+  font-family: var(--font-mono); font-size: 0.62rem;
+  text-transform: uppercase; letter-spacing: 0.1em;
+  padding: 5px 12px; border-radius: 20px;
+  backdrop-filter: blur(12px);
+}
+.w-badge-cat {
+  background: rgba(0,0,0,0.5); color: var(--cream-dim);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.w-badge-lang {
+  background: rgba(232,180,184,0.15); color: var(--rose);
+  border: 1px solid rgba(232,180,184,0.2);
+}
+.w-img-icon {
+  position: absolute; bottom: 20px; right: 20px; z-index: 2;
+  width: 52px; height: 52px;
+  background: rgba(232,180,184,0.12);
+  border: 1.5px solid rgba(232,180,184,0.2);
+  border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  backdrop-filter: blur(12px);
+  transition: transform 0.3s, background 0.3s;
+}
+.w-card:hover .w-img-icon {
+  transform: scale(1.1) rotate(-3deg);
+  background: rgba(232,180,184,0.2);
+}
+.w-img-icon i { font-size: 24px; color: var(--rose); }
+
+.w-content {
+  padding: 2rem 2.2rem;
+  display: flex; flex-direction: column; justify-content: center;
+}
+.w-content h3 {
+  font-family: var(--font-display);
+  font-size: 1.3rem; font-weight: 700;
+  margin-bottom: 1rem; line-height: 1.35;
+  letter-spacing: -0.01em;
+}
+.w-bangla {
+  font-size: 0.88rem; color: var(--cream-dim); line-height: 1.8;
+  margin-bottom: 1.5rem;
+  padding: 1rem 1.2rem;
+  background: linear-gradient(135deg, rgba(232,180,184,0.04) 0%, rgba(212,165,116,0.03) 100%);
+  border-left: 3px solid var(--rose);
+  border-radius: 0 10px 10px 0;
+}
+.w-bangla a {
+  color: var(--rose); text-decoration: underline;
+  text-underline-offset: 3px; text-decoration-thickness: 1px;
+}
+.w-read-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 0.6rem 1.4rem;
+  background: var(--rose-glow);
+  border: 1px solid rgba(232,180,184,0.15);
+  border-radius: 24px;
+  font-size: 0.82rem; font-weight: 500; color: var(--rose);
+  transition: background 0.2s, gap 0.25s, border-color 0.2s;
+  width: fit-content;
+}
+.w-card:hover .w-read-btn {
+  background: var(--rose-glow-strong);
+  border-color: rgba(232,180,184,0.3);
+  gap: 12px;
+}
+.w-read-btn i { font-size: 14px; transition: transform 0.25s; }
+.w-card:hover .w-read-btn i { transform: translateX(2px); }
+
+@media (max-width: 900px) {
+  .w-card, .w-card.w-card-reverse {
+    grid-template-columns: 1fr;
+  }
+  .w-img { min-height: 220px; }
+}
+
+/* ══ JOURNEY ══ */
+.timeline { position: relative; padding-left: 3rem; margin-top: 2rem; }
+.timeline::before {
+  content: '';
+  position: absolute; left: 11px; top: 8px; bottom: 8px;
+  width: 1.5px;
+  background: linear-gradient(to bottom, var(--rose), var(--border));
+}
+.tl-item { position: relative; padding-bottom: 2.5rem; }
+.tl-item:last-child { padding-bottom: 0; }
+.tl-dot {
+  position: absolute; left: -3rem; top: 6px;
+  width: 22px; height: 22px; border-radius: 50%;
+  background: var(--bg-deep);
+  border: 2px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+}
+.tl-dot::after {
+  content: ''; width: 8px; height: 8px; border-radius: 50%;
+  background: var(--cream-faint);
+}
+.tl-item.current .tl-dot { border-color: var(--rose); }
+.tl-item.current .tl-dot::after { background: var(--rose); box-shadow: 0 0 12px var(--rose); }
+.tl-dates {
+  font-family: var(--font-mono); font-size: 0.72rem; color: var(--cream-faint);
+  margin-bottom: 0.2rem;
+}
+.tl-role { font-family: var(--font-display); font-weight: 600; font-size: 1.05rem; margin-bottom: 0.15rem; }
+.tl-company { font-size: 0.88rem; color: var(--rose); margin-bottom: 0.3rem; }
+.tl-desc { font-size: 0.85rem; color: var(--cream-faint); max-width: 480px; }
+
+/* ══ TOOLKIT ══ */
+.toolkit-section {
+  background: var(--bg-surface);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.toolkit-cats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin-top: 2rem; }
+.toolkit-cat h3 {
+  font-family: var(--font-mono); font-size: 0.68rem;
+  text-transform: uppercase; letter-spacing: 0.12em;
+  color: var(--rose); margin-bottom: 0.8rem;
+}
+.toolkit-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.toolkit-pill {
+  font-size: 0.8rem; padding: 0.4rem 0.9rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  color: var(--cream-dim);
+  transition: border-color 0.2s, color 0.2s;
+}
+.toolkit-pill:hover { border-color: var(--rose); color: var(--rose); }
+
+/* ══ CONTACT ══ */
+.contact-section { position: relative; overflow: hidden; }
+.contact-glow {
+  position: absolute; top: -30%; right: -10%;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(232,180,184,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+.contact-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 4rem; position: relative; z-index: 1; }
+.contact-text p { color: var(--cream-dim); font-size: 0.95rem; margin-bottom: 1rem; line-height: 1.8; }
+.contact-links { list-style: none; }
+.contact-links li {
+  border-bottom: 1px solid var(--border);
+}
+.contact-links li:last-child { border-bottom: none; }
+.contact-links a {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0;
+  color: var(--cream-dim);
+  transition: color 0.2s, padding-left 0.2s;
+}
+.contact-links a:hover { color: var(--rose); padding-left: 8px; }
+.contact-links .cl-label {
+  font-family: var(--font-mono); font-size: 0.68rem;
+  text-transform: uppercase; letter-spacing: 0.1em;
+  color: var(--cream-faint); display: block; margin-bottom: 2px;
+}
+.contact-links .cl-value { font-size: 0.92rem; }
+
+/* ══ FOOTER ══ */
+footer {
+  padding: 2rem 0;
+  border-top: 1px solid var(--border);
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--cream-faint);
+}
+footer span { color: var(--rose); }
+
+/* ══ DECORATIVE FLOATERS ══ */
+.float-shape {
+  position: absolute; pointer-events: none; opacity: 0.04;
+}
+
+/* ══ RESPONSIVE ══ */
+@media (max-width: 900px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .hero h1 { font-size: 2.6rem; }
+  .hero-stats { order: -1; }
+  .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .skills-grid { grid-template-columns: 1fr 1fr; }
+  .impact-grid { grid-template-columns: 1fr; }
+  .feature-grid { grid-template-columns: 1fr; }
+  .writing-grid { grid-template-columns: 1fr; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .chapter-header { grid-template-columns: 1fr; }
+  .toolkit-cats { grid-template-columns: 1fr; }
+  .nav-links { display: none; }
+  .nav-links.open {
+    display: flex; flex-direction: column;
+    position: absolute; top: 100%; left: 0; right: 0;
+    background: rgba(13,13,24,0.97); backdrop-filter: blur(16px);
+    padding: 1.5rem 2rem; gap: 1rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .mobile-toggle { display: block; }
+}
+
+/* ══ ANIMATIONS ══ */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal {
+    opacity: 0; transform: translateY(28px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <a href="#" class="nav-logo">MS.</a>
+    <button class="mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+      <i class="ti ti-menu-2"></i>
+    </button>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#impact">Impact</a>
+      <a href="#work">Work</a>
+      <a href="#writing">Writing</a>
+      <a href="#journey">Journey</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════ HERO ═══════ -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-glow-2"></div>
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-eyebrow">Lead Product Manager</div>
+        <h1>
+          <span class="accent">Everything</span><br>
+          Product<span class="accent-gold">.</span>
+        </h1>
+        <p class="hero-intro">
+          I have a hunch that you're here for all the right reasons! I'm Melody Soptaka, 
+          currently leading product at Bangladesh's largest OTT platform. With 6+ years of shipping
+          features that touch millions, I'm basically bilingual in tech and business lingo.
+          Need to ride the rollercoaster of feature development from brainstorm to launch? I'm your guide!
+        </p>
+        <div class="hero-cta">
+          <a href="#work" class="btn-rose">
+            See my work <i class="ti ti-arrow-down" style="font-size: 16px;"></i>
+          </a>
+          <a href="mailto:melodysoptaka@gmail.com" class="btn-ghost">
+            <i class="ti ti-mail" style="font-size: 16px;"></i> Get in touch
+          </a>
+        </div>
+      </div>
+      <div class="hero-stats reveal">
+        <div class="stats-label">At a glance</div>
+        <div class="stat-item">
+          <span class="stat-key">Current role</span>
+          <span class="stat-val">Lead PM</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-key">Platform scale</span>
+          <span class="stat-val">14M users</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-key">Years in product</span>
+          <span class="stat-val">6+</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-key">Domains</span>
+          <span class="stat-val">OTT, Payments, Growth</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-key">Watchtime served</span>
+          <span class="stat-val">1M+ hrs</span>
+        </div>
+        <div class="hero-badge">
+          <i class="ti ti-map-pin" style="font-size: 14px;"></i>
+          Dhaka, Bangladesh &middot; Open to APAC
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ ABOUT ═══════ -->
+<section class="about-section" id="about">
+  <div class="container">
+    <div class="section-eyebrow">About</div>
+    <div class="section-title">The short version</div>
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p>
+          I'm a product manager who came up through engineering &mdash; BSc in Computer Science from
+          the University of Dhaka, then two years managing an engineering team at a Silicon Valley-backed
+          startup before I found my real calling in product.
+        </p>
+        <p>
+          At Bongo, I've grown from PM to Lead PM across three promotions. Along the way, I've owned
+          everything from subscription funnels and payment integrations to launching live EPL streaming &mdash;
+          <span class="fun-line">the kind of work where getting it wrong means millions of people have a bad Friday night.</span>
+        </p>
+        <p>
+          Struggling to decode tech talk for non-tech folks? That's my jam! Tired of developers
+          constantly nudging you for clarity? Don't worry, I've got your back. I've learned and unlearned,
+          made mistakes, put out fires, and most importantly &mdash; re-found my passion for product management.
+        </p>
+      </div>
+      <div>
+        <div class="skills-grid" style="grid-template-columns: 1fr 1fr;">
+          <div class="skill-card reveal reveal-delay-1">
+            <div class="skill-icon"><i class="ti ti-target-arrow" aria-hidden="true"></i></div>
+            <h3>Product strategy</h3>
+            <p>Roadmapping, A/B testing, prioritisation, brainstorming workshops</p>
+          </div>
+          <div class="skill-card reveal reveal-delay-2">
+            <div class="skill-icon"><i class="ti ti-pencil-heart" aria-hidden="true"></i></div>
+            <h3>Product design</h3>
+            <p>User stories, wireframing, user journeys, design briefs</p>
+          </div>
+          <div class="skill-card reveal reveal-delay-1">
+            <div class="skill-icon"><i class="ti ti-users-group" aria-hidden="true"></i></div>
+            <h3>Market &amp; user research</h3>
+            <p>Market analysis, usability testing, customer interviews, growth marketing</p>
+          </div>
+          <div class="skill-card reveal reveal-delay-2">
+            <div class="skill-icon"><i class="ti ti-chart-dots-3" aria-hidden="true"></i></div>
+            <h3>Analytics</h3>
+            <p>Data analysis, data-informed planning, KPIs, experimentation</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ IMPACT ═══════ -->
+<section id="impact">
+  <div class="container">
+    <div class="section-eyebrow">Impact</div>
+    <div class="section-title">Numbers that mattered</div>
+    <div class="section-sub">I track outcomes, not outputs. Here are the measurable wins from building at scale.</div>
+    <div class="impact-grid">
+      <div class="impact-card reveal">
+        <div class="impact-num">30%</div>
+        <div class="impact-desc">Reduction in cart abandonment through payment UX partnerships with Grameenphone and bKash</div>
+        <div class="impact-meta">Bongo OTT &middot; 2024</div>
+      </div>
+      <div class="impact-card reveal reveal-delay-1">
+        <div class="impact-num">~40%</div>
+        <div class="impact-desc">Cut in OTP infrastructure costs by shipping an alternative login system at scale</div>
+        <div class="impact-meta">Bongo OTT &middot; 2022</div>
+      </div>
+      <div class="impact-card reveal reveal-delay-2">
+        <div class="impact-num">30%</div>
+        <div class="impact-desc">Rise in conversion rates from multi-channel growth campaigns</div>
+        <div class="impact-meta">Backpack Technologies &middot; 2019&ndash;2020</div>
+      </div>
+      <div class="impact-card reveal">
+        <div class="impact-num">5%+</div>
+        <div class="impact-desc">Revenue increase through external B2B partnerships as technical point of contact</div>
+        <div class="impact-meta">Bongo OTT &middot; 2023</div>
+      </div>
+      <div class="impact-card reveal reveal-delay-1">
+        <div class="impact-num">14M</div>
+        <div class="impact-desc">Active subscribers on the platform I help shape &mdash; every decision touches real scale</div>
+        <div class="impact-meta">Bongo OTT &middot; Ongoing</div>
+      </div>
+      <div class="impact-card reveal reveal-delay-2">
+        <div class="impact-num">1M+</div>
+        <div class="impact-desc">Hours of watchtime served monthly across the platform's content library</div>
+        <div class="impact-meta">Bongo OTT &middot; Ongoing</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ WORK ═══════ -->
+<section class="work-section" id="work">
+  <div class="container">
+    <div class="section-eyebrow">Work</div>
+    <div class="section-title">What I've been up to</div>
+    <div class="section-sub">Each company taught me something different. Here's the story.</div>
+
+    <!-- BONGO -->
+    <div class="chapter reveal">
+      <div class="chapter-header">
+        <div>
+          <div class="chapter-company">Bongo</div>
+          <div class="chapter-role">Lead Product Manager (previously PM &rarr; Sr. PM)</div>
+          <div class="chapter-dates">Aug 2021 &ndash; Present</div>
+        </div>
+        <div class="chapter-badge">
+          <i class="ti ti-device-tv" aria-hidden="true"></i>
+          Largest OTT in Bangladesh
+        </div>
+      </div>
+      <p class="chapter-context">
+        Currently working with the biggest local OTT platform in Bangladesh, <strong style="color:var(--cream)">Bongo</strong>.
+        Working closely with engineers and marketing and being able to make impactful features a reality has been an eye-opener for me.
+        I have learned and unlearned, made mistakes, put out fires, and most importantly re-found my passion for product management.
+        Contributing to the customer-facing apps has helped my decision-making skills flourish.
+      </p>
+
+      <div class="feature-grid">
+        <div class="feature-chip">
+          <i class="ti ti-credit-card" aria-hidden="true"></i>
+          <div>
+            <div class="f-title">Floating card (subscription CTA)</div>
+            <div class="f-desc">My very first work here as a product manager</div>
+          </div>
+        </div>
+        <div class="feature-chip">
+          <i class="ti ti-route" aria-hidden="true"></i>
+          <div>
+            <div class="f-title">Login &amp; subscription journey revamp</div>
+            <div class="f-desc">Minimising steps, maximising conversion</div>
+          </div>
+        </div>
+        <div class="feature-chip">
+          <i class="ti ti-device-tv-old" aria-hidden="true"></i>
+          <div>
+            <div class="f-title">Device auth flow (Connect TV)</div>
+            <div class="f-desc">Reduced dependency on OTP login</div>
+          </div>
+        </div>
+        <div class="feature-chip">
+          <i class="ti ti-brand-google" aria-hidden="true"></i>
+          <div>
+            <div class="f-title">Social login</div>
+            <div class="f-desc">Reducing OTP costs by ~40%</div>
+          </div>
+        </div>
+        <div class="feature-chip">
+          <i class="ti ti-wallet" aria-hidden="true"></i>
+          <div>
+            <div class="f-title">Payment aggregator integration</div>
+            <div class="f-desc">Global and local gateways (bKash, GP, Nagad)</div>
+          </div>
+        </div>
+        <div class="feature-chip">
+          <i class="ti ti-arrows-shuffle" aria-hidden="true"></i>
+          <div>
+            <div class="f-title">Shuffle capability</div>
+            <div class="f-desc">Dynamic UI element reordering</div>
+          </div>
+        </div>
+        <div class="feature-chip">
+          <i class="ti ti-trophy" aria-hidden="true"></i>
+          <div>
+            <div class="f-title">EPL live streaming</div>
+            <div class="f-desc">Unlocked a brand-new sports vertical</div>
+          </div>
+        </div>
+        <div class="feature-chip">
+          <i class="ti ti-settings" aria-hidden="true"></i>
+          <div>
+            <div class="f-title">QoL features for CMS &amp; CRM</div>
+            <div class="f-desc">Internal tools that made everyone's life easier</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="outcome-row">
+        <div class="outcome-pill">
+          <span class="o-num">14M</span>
+          <span class="o-label">subscribers</span>
+        </div>
+        <div class="outcome-pill">
+          <span class="o-num">1M+</span>
+          <span class="o-label">hrs watchtime</span>
+        </div>
+        <div class="outcome-pill">
+          <span class="o-num">-30%</span>
+          <span class="o-label">cart abandonment</span>
+        </div>
+        <div class="outcome-pill">
+          <span class="o-num">-40%</span>
+          <span class="o-label">OTP costs</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- UPTECH -->
+    <div class="chapter reveal">
+      <div class="chapter-header">
+        <div>
+          <div class="chapter-company">Uptech Solution</div>
+          <div class="chapter-role">Technical Product Manager</div>
+          <div class="chapter-dates">Jan 2021 &ndash; Jun 2021</div>
+        </div>
+        <div class="chapter-badge">
+          <i class="ti ti-device-gamepad-2" aria-hidden="true"></i>
+          Gaming portal
+        </div>
+      </div>
+      <p class="chapter-context">
+        My time at Uptech Solution Ltd was short-lived but in no way short of learnings and experience.
+        Documentation, stakeholder communication, and project management were my key responsibilities here.
+        Working with multi-national clients enhanced my knowledge of global community and tech. I got hands-on with 
+        flow planning with developers &mdash; like mapping out a cash withdrawal model for a gaming portal.
+      </p>
+      <div class="feature-grid" style="grid-template-columns: 1fr 1fr;">
+        <div class="feature-chip">
+          <i class="ti ti-browser" aria-hidden="true"></i>
+          <div>
+            <div class="f-title">HTML5 gaming portal (Beta)</div>
+            <div class="f-desc">End-to-end product launch</div>
+          </div>
+        </div>
+        <div class="feature-chip">
+          <i class="ti ti-cash" aria-hidden="true"></i>
+          <div>
+            <div class="f-title">Cash withdrawal flow design</div>
+            <div class="f-desc">Multi-method (Bank, bKash, Rocket)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BACKPACK -->
+    <div class="chapter reveal">
+      <div class="chapter-header">
+        <div>
+          <div class="chapter-company">Backpack Technologies</div>
+          <div class="chapter-role">Associate Engineering Manager &amp; Growth Hacker</div>
+          <div class="chapter-dates">Sep 2018 &ndash; Dec 2020</div>
+        </div>
+        <div class="chapter-badge">
+          <i class="ti ti-rocket" aria-hidden="true"></i>
+          Silicon Valley-funded
+        </div>
+      </div>
+      <p class="chapter-context">
+        My very first workplace! Then Backpack Technologies Inc. was a Silicon Valley-funded startup.
+        Starting as an Engineering Manager was the right call for me &mdash; I got to explore the realm of 
+        project management and growth marketing. I don't remember Engineering Manager being a common role in
+        Bangladesh back then. I took a leap of faith there and it was rewarding in the end. I had the
+        opportunity to work with some of the brilliant minds in the industry!
+      </p>
+      <div class="outcome-row">
+        <div class="outcome-pill">
+          <span class="o-num">+30%</span>
+          <span class="o-label">conversion rate</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ WRITING ═══════ -->
+<section id="writing">
+  <div class="container">
+    <div class="section-eyebrow">Writing</div>
+    <div class="section-title">Things I wrote</div>
+    <div class="section-sub">I write about product management in Bangla &mdash; because good PM content shouldn't only exist in English.</div>
+    <div class="writing-stack">
+
+      <div class="w-card reveal" data-href="https://medium.com/@melodysoptaka/product-management-dogfooding-245b47a353ca">
+        <div class="w-img">
+          <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=900&q=80" alt="Golden retriever eating from a bowl" loading="lazy">
+          <div class="w-img-overlay"></div>
+          <div class="w-img-badges">
+            <span class="w-badge w-badge-cat">Product management</span>
+            <span class="w-badge w-badge-lang">বাংলা</span>
+          </div>
+          <div class="w-img-icon"><i class="ti ti-bone" aria-hidden="true"></i></div>
+        </div>
+        <div class="w-content">
+          <h3>Product Management: Dogfooding</h3>
+          <div class="w-bangla">
+            খুবই অদ্ভুত শুনতে এই টার্মটার উৎপত্তি একটা <a href="https://www.youtube.com/watch?v=cHUMaKWgfS0" target="_blank" rel="noopener">পুরানো কমার্শিয়াল</a> থেকে। এক অভিনেতা ডগ ফুডের বিজ্ঞাপনে নিজের কুকুরকে খাওয়ানোর মাধ্যমে দর্শকদেরকে তাদের কুকুরদের জন্য সেই ডগ ফুড কিনতে উৎসাহিত করেন। সেখান থেকে ডগফুডিং টার্মটা এসেছে।
+          </div>
+          <a href="https://medium.com/@melodysoptaka/product-management-dogfooding-245b47a353ca" target="_blank" rel="noopener" class="w-read-btn">Read on Medium <i class="ti ti-arrow-right" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div class="w-card w-card-reverse reveal" data-href="https://medium.com/@melodysoptaka/project-management-cost-variance-and-schedule-variance-85cc54c472f7">
+        <div class="w-content">
+          <h3>Project Management: Cost Variance &amp; Schedule Variance</h3>
+          <div class="w-bangla">
+            বর্তমান সময়ে বেশিরভাগ স্টার্টাপ অথবা ওয়েল-এসট্যাবলিশড অরগ্যানাইজেশনগুলো প্রোজেক্ট-প্রোগ্রাম বেসিসে কাজ করে। প্রোজেক্ট হলো ক্ষুদ্রতর ইউনিট। কোম্পানির ম্যানেজমেন্ট ফ্রেমওয়ার্কের উপর ভিত্তি করে এই নাম ভিন্ন হতে পারে।
+          </div>
+          <a href="https://medium.com/@melodysoptaka/project-management-cost-variance-and-schedule-variance-85cc54c472f7" target="_blank" rel="noopener" class="w-read-btn">Read on Medium <i class="ti ti-arrow-right" aria-hidden="true"></i></a>
+        </div>
+        <div class="w-img">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&q=80" alt="Data analytics dashboard with charts" loading="lazy">
+          <div class="w-img-overlay"></div>
+          <div class="w-img-badges">
+            <span class="w-badge w-badge-cat">Project management</span>
+            <span class="w-badge w-badge-lang">বাংলা</span>
+          </div>
+          <div class="w-img-icon"><i class="ti ti-chart-arrows" aria-hidden="true"></i></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ JOURNEY ═══════ -->
+<section class="toolkit-section" id="journey">
+  <div class="container">
+    <div class="section-eyebrow">Journey</div>
+    <div class="section-title">How I got here</div>
+    <div class="section-sub">From managing engineers at a startup to leading product for 14 million subscribers.</div>
+    <div class="timeline">
+      <div class="tl-item current reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-dates">Mar 2024 &ndash; Present</div>
+        <div class="tl-role">Lead Product Manager</div>
+        <div class="tl-company">Stellar Digital &mdash; Bongo OTT</div>
+        <div class="tl-desc">Owning roadmap, partnerships (GP, bKash, EPL), and cross-functional delivery at scale.</div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-dates">Jun 2023 &ndash; Feb 2024</div>
+        <div class="tl-role">Senior Product Manager</div>
+        <div class="tl-company">Stellar Digital &mdash; Bongo OTT</div>
+        <div class="tl-desc">Prioritisation frameworks, pre-scoping processes, B2B partnerships as technical PoC.</div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-dates">Aug 2021 &ndash; May 2023</div>
+        <div class="tl-role">Product Manager</div>
+        <div class="tl-company">Stellar Digital &mdash; Bongo OTT</div>
+        <div class="tl-desc">Alternative login (40% OTP cost cut), subscription revamp, user research programmes.</div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-dates">Jan 2021 &ndash; Jun 2021</div>
+        <div class="tl-role">Technical Product Manager</div>
+        <div class="tl-company">Uptech Solution</div>
+        <div class="tl-desc">Launched HTML5 gaming portal. Stakeholder management, multi-national clients.</div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-dates">Sep 2018 &ndash; Dec 2020</div>
+        <div class="tl-role">Assoc. Engineering Manager &amp; Growth Hacker</div>
+        <div class="tl-company">Backpack Technologies</div>
+        <div class="tl-desc">Silicon Valley-funded startup. 30% conversion uplift. Where it all began.</div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-dates">2014 &ndash; 2018</div>
+        <div class="tl-role">BSc in Computer Science &amp; Engineering</div>
+        <div class="tl-company">University of Dhaka</div>
+        <div class="tl-desc">The foundation. Still informs how I think about feasibility and trade-offs.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ TOOLKIT ═══════ -->
+<section>
+  <div class="container">
+    <div class="section-eyebrow">Toolkit</div>
+    <div class="section-title">What I work with</div>
+    <div class="toolkit-cats">
+      <div class="toolkit-cat reveal">
+        <h3><i class="ti ti-target-arrow" style="font-size: 14px; margin-right: 4px;" aria-hidden="true"></i> Product craft</h3>
+        <div class="toolkit-pills">
+          <span class="toolkit-pill">Product strategy</span>
+          <span class="toolkit-pill">Roadmapping</span>
+          <span class="toolkit-pill">Prioritisation</span>
+          <span class="toolkit-pill">User research</span>
+          <span class="toolkit-pill">Wireframing</span>
+          <span class="toolkit-pill">GTM strategy</span>
+          <span class="toolkit-pill">A/B testing</span>
+        </div>
+      </div>
+      <div class="toolkit-cat reveal">
+        <h3><i class="ti ti-chart-bar" style="font-size: 14px; margin-right: 4px;" aria-hidden="true"></i> Analytics &amp; data</h3>
+        <div class="toolkit-pills">
+          <span class="toolkit-pill">Google Analytics</span>
+          <span class="toolkit-pill">YouBORA</span>
+          <span class="toolkit-pill">Firebase Console</span>
+          <span class="toolkit-pill">Google Play Console</span>
+        </div>
+      </div>
+      <div class="toolkit-cat reveal">
+        <h3><i class="ti ti-palette" style="font-size: 14px; margin-right: 4px;" aria-hidden="true"></i> Design &amp; collaboration</h3>
+        <div class="toolkit-pills">
+          <span class="toolkit-pill">Figma</span>
+          <span class="toolkit-pill">Miro</span>
+          <span class="toolkit-pill">Whimsical</span>
+          <span class="toolkit-pill">Draw.io</span>
+          <span class="toolkit-pill">Canva</span>
+        </div>
+      </div>
+      <div class="toolkit-cat reveal">
+        <h3><i class="ti ti-layout-kanban" style="font-size: 14px; margin-right: 4px;" aria-hidden="true"></i> Project &amp; ops</h3>
+        <div class="toolkit-pills">
+          <span class="toolkit-pill">Jira</span>
+          <span class="toolkit-pill">Confluence</span>
+          <span class="toolkit-pill">Coda</span>
+          <span class="toolkit-pill">Trello</span>
+          <span class="toolkit-pill">Zendesk</span>
+          <span class="toolkit-pill">Scrum / Agile</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ CERTS ═══════ -->
+<section class="toolkit-section">
+  <div class="container">
+    <div class="section-eyebrow">Credentials</div>
+    <div class="section-title">Certifications</div>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-top: 2rem;">
+      <div class="impact-card reveal" style="padding: 1.5rem;">
+        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
+          <div class="skill-icon" style="width: 36px; height: 36px; margin: 0;">
+            <i class="ti ti-certificate" style="font-size: 18px;" aria-hidden="true"></i>
+          </div>
+          <div>
+            <div style="font-family: var(--font-display); font-weight: 600; font-size: 0.95rem;">Scrum Master Professional</div>
+            <div style="font-size: 0.78rem; color: var(--cream-faint);">Active since May 2022</div>
+          </div>
+        </div>
+      </div>
+      <div class="impact-card reveal reveal-delay-1" style="padding: 1.5rem;">
+        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
+          <div class="skill-icon" style="width: 36px; height: 36px; margin: 0;">
+            <i class="ti ti-growth" style="font-size: 18px;" aria-hidden="true"></i>
+          </div>
+          <div>
+            <div style="font-family: var(--font-display); font-weight: 600; font-size: 0.95rem;">Product Led Growth</div>
+            <div style="font-size: 0.78rem; color: var(--cream-faint);">Product School &middot; Aug 2022</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ CONTACT ═══════ -->
+<section class="contact-section" id="contact">
+  <div class="contact-glow"></div>
+  <div class="container">
+    <div class="contact-grid">
+      <div class="reveal">
+        <div class="section-eyebrow">Contact</div>
+        <div class="section-title">Let's connect?</div>
+        <div class="contact-text">
+          <p>
+            Hey, this is Melody. Not to sound creepy or anything, I want to thank you for
+            taking your time to go through my site and finally landing here.
+          </p>
+          <p>
+            I'm actively exploring senior product roles at companies building for APAC markets.
+            Whether you're scaling a consumer product, launching in Southeast Asia, or just want
+            to swap product war stories &mdash; I'd love to hear from you.
+          </p>
+          <p style="color: var(--rose); font-weight: 500;">
+            Open to relocation across APAC &middot; Available for remote roles
+          </p>
+        </div>
+      </div>
+      <div class="reveal reveal-delay-1">
+        <ul class="contact-links">
+          <li>
+            <a href="mailto:melodysoptaka@gmail.com">
+              <span>
+                <span class="cl-label">Email</span>
+                <span class="cl-value">melodysoptaka@gmail.com</span>
+              </span>
+              <i class="ti ti-arrow-right" style="font-size: 16px;"></i>
+            </a>
+          </li>
+          <li>
+            <a href="tel:+8801686724736">
+              <span>
+                <span class="cl-label">Phone</span>
+                <span class="cl-value">+880 1686 724736</span>
+              </span>
+              <i class="ti ti-arrow-right" style="font-size: 16px;"></i>
+            </a>
+          </li>
+          <li>
+            <a href="https://linkedin.com" target="_blank" rel="noopener">
+              <span>
+                <span class="cl-label">LinkedIn</span>
+                <span class="cl-value">Connect with me</span>
+              </span>
+              <i class="ti ti-arrow-right" style="font-size: 16px;"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    &copy; 2025 <span>Melody Soptaka</span> &middot; Built with care from Dhaka, Bangladesh
+  </div>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('visible');
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    const t = document.querySelector(this.getAttribute('href'));
+    if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    document.querySelector('.nav-links')?.classList.remove('open');
+  });
+});
+
+document.querySelectorAll('.w-card[data-href]').forEach(card => {
+  card.addEventListener('click', function(e) {
+    if (e.target.closest('a')) return;
+    window.open(this.dataset.href, '_blank');
+  });
+});
+</script>
+</body>
+</html>
